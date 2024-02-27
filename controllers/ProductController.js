@@ -14,10 +14,12 @@ module.exports = class ProductController{
 
     static creatProductPost(req,res){
         const name = req.body.name;
+        const image = req.body.image;
         const price = req.body.price;
         const description = req.body.description;
+    
 
-        const product = new Product(name,price,description);
+        const product = new Product(name,image,price,description);
         product.save();
         res.redirect("/");
     }
