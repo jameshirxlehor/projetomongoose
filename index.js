@@ -30,7 +30,7 @@ app.use(express.json());//habiliza o uso de JSON
 app.use(express.static('public'));
 
 
-app.use('/products', productRoutes);
+app.use("/", productRoutes);
 
 
 app.listen(3000); //habilita a porta que iremos utlizar no localhost
