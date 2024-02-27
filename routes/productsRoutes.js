@@ -6,6 +6,7 @@ const ProductController = require('../controllers/ProductController');
 
 router.post("/create",ProductController.creatProductPost);
 router.get("/create",ProductController.creatProduct);
+router.post("/remove/:id",ProductController.removeProduct);
 router.get("/:id",ProductController.getProduct);
 router.get("/",ProductController.showProducts);
 
