@@ -39,7 +39,44 @@ module.exports = class ProductController{
 
         res.redirect("/");
     }
+    static async editProduct(req,res){
+        try{
+    
+          const id = req.params.id;
+    
+          const product = await Product.getProductById(id);
+    
+          res.render('products/edit',{ product });
+          
+    
+        }catch(err){
+    
+        }
+        
+      }
 
 
+
+      static async editProductPost(req,res){
+        // try{
+    
+          const id = req.body.id;
+          const name = req.body.name;
+          const image = req.body.image;
+          const price = req.body.price;
+          const description = req.body.description;
+    
+          const producteditado = new Product(name,image,price,description);
+            
+          await producteditado.updateProduct(id);
+
+          res.redirect('/');
+          
+    
+        // }catch(err){
+    
+        // }
+    
+      }
 
 };

@@ -61,12 +61,22 @@ class Product {
 
     }
     
-    
-    
-    
   }
 
+  updateProduct(id) {
+      // try{
 
+        conn.db().collection('products').updateOne({_id: new ObjectId(id)},{$set: this});
+
+      return;
+
+      // }catch(err){
+
+      //   // console.log(`Problma no delete : ${err}`);
+
+      // }
+    
+  }
 
 
 }
