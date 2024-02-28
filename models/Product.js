@@ -25,22 +25,45 @@ class Product {
     const products = conn.db().collection('products').find().toArray();
       return products;
   }
+
+
   static async getProductById(id) {
-    const product = await conn
+    
+
+    try{
+      const product = await conn
       .db()
       .collection('products')
       .findOne({_id: new ObjectId(id)})
 
-    return product
+      return product
+
+    }catch(err){
+
+      // console.log(`Problma no find : ${err}`);
+
+    }
   }
 
   static async removeProductById(id) {
-    const product = await conn
+    try{
+
+      const product = await conn
       .db()
       .collection('products')
       .deleteOne({_id: new ObjectId(id)})
 
     return;
+
+    }catch(err){
+
+      // console.log(`Problma no delete : ${err}`);
+
+    }
+    
+    
+    
+    
   }
 
 

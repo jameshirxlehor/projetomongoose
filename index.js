@@ -16,7 +16,7 @@ app.set('view engine', 'handlebars');
 app.set('views','./views');
 
 
-//responsábel por fazer a leitura do body
+//responsável por fazer a leitura do body
 app.use(
     express.urlencoded({
         extended: true,
